@@ -1,0 +1,6 @@
+AI Model Training Sample Document
+
+This is a sample text file. Replace it with your own PDF, DOCX, or TXT files.
+
+When you run "python main.py ingest", this file will be converted to plain text
+in data/processed/. You can then build a RAG index or fine-tune a LoRA adapter.

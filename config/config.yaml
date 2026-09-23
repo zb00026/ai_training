@@ -1,0 +1,41 @@
+# Set enabled: true on offline machines (uses models/cache/ only, no internet)
+offline:
+  enabled: true
+
+ollama:
+  base_model: "qwen2.5:3b"           # must match training base; already in Ollama app
+  trained_model_name: "my-docs-model" # new model name shown in Ollama app after install
+  host: "http://localhost:11434"
+
+# HuggingFace models — downloaded once online, then used locally
+models:
+  base_hf_hub_id: "Qwen/Qwen2.5-3B-Instruct"
+  base_hf_local: "models/cache/base-model"
+  embedding_hub_id: "sentence-transformers/all-MiniLM-L6-v2"
+  embedding_local: "models/cache/embedding-model"
+
+training:
+  output_dir: "models/adapters/latest"
+  epochs: 1
+  batch_size: 1
+  learning_rate: 2.0e-4
+  max_seq_length: 2048
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+
+ingest:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  supported_extensions: [".txt", ".md", ".pdf", ".docx", ".doc", ".pptx", ".ppt", ".xlsx", ".xls"]
+
+prepare:
+  training_dir: "data/training"
+  chunk_size: 1000
+  chunk_overlap: 100
+
+rag:
+  index_dir: "models/rag"
+  chunk_size: 512
+  chunk_overlap: 64
+  top_k: 5
