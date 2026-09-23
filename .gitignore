@@ -1,4 +1,0 @@
-
-# Keep directory structure
-!data/raw/.gitkeep
-!data/processed/.gitkeep
